@@ -145,3 +145,157 @@ class Dog extends Vehicle {
         return ""; 
     }
 }
+
+
+class Pedestrian extends Vehicle {
+    protected boolean checkIfCanRun() {
+        return true;        
+    }
+    protected void proceed() {
+        System.out.println("Pieszy wchodzi na skrzyżowanie: " + java.time.LocalDateTime.now());
+    }
+    protected String getPlateNumber() {
+        return ""; 
+    }
+}
+
+class NamedPedestrian extends Vehicle {
+    protected boolean checkIfCanRun() {
+        return true;
+    }
+
+    protected void proceed() {
+        System.out.println("Jan Kowalski wjeżdża na skrzyżowanie: " + java.time.LocalDateTime.now());
+    }
+    protected String getPlateNumber() {
+        return ""; 
+    }
+}
+
+class Bike extends Vehicle {
+    protected boolean checkIfCanRun() {
+        return true;
+    }
+
+    protected void proceed() {
+        System.out.println("Rowerzysta wjeżdża na skrzyżowanie: " + java.time.LocalDateTime.now());
+    }
+    protected String getPlateNumber() {
+        return ""; 
+    }
+}
+
+class NamedBike extends Vehicle {
+    protected boolean checkIfCanRun() {
+        return true;
+    }
+
+    protected void proceed() {
+        System.out.println("Angelika Patyk wjeżdża na skrzyżowanie: " + java.time.LocalDateTime.now());
+    }
+    protected String getPlateNumber() {
+        return ""; 
+    }
+}
+
+class Escooter extends Vehicle {
+    protected boolean checkIfCanRun() {
+        return true;
+    }
+
+    protected void proceed() {
+        System.out.println("Hulajnowa elektryczna wjeżdża na skrzyżowanie: " + java.time.LocalDateTime.now());
+    }
+    public String getPlateNumber() {        
+        return "";
+    }
+}
+
+class NamedEscooter extends Vehicle {
+    protected boolean checkIfCanRun() {
+        return true;
+    }
+
+    protected void proceed() {
+        System.out.println("Dawid Krzak wjeżdża na skrzyżowanie: " + java.time.LocalDateTime.now());
+    }
+    public String getPlateNumber() {
+        return "";
+    }
+}
+
+class Motocycle extends Vehicle {
+    private String plateNumber;
+
+    Motocycle(String plateNumber) {
+        this.plateNumber = plateNumber;
+    }
+
+    protected boolean checkIfCanRun() {
+        return true;
+    }
+
+    protected void proceed() {
+        System.out.println("Anonimowy Motocykl (" + plateNumber + ") wjeżdza na skrzyżowanie: " + java.time.LocalDateTime.now());
+    }
+    public String getPlateNumber() {
+        return "DLE 1111";
+    }
+}
+
+class NamedMotocycle extends Vehicle {
+    private String plateNumber;
+
+    NamedMotocycle(String plateNumber) {
+        this.plateNumber = plateNumber;
+    }
+
+    protected boolean checkIfCanRun() {
+        return true;
+    }
+
+    protected void proceed() {
+        System.out.println("Władysław Brzechwa samochodem (" + plateNumber + ") wjeżdża na skrzyżowanie: " + java.time.LocalDateTime.now());
+    }
+    public String getPlateNumber() {
+        return "DLE 1122";
+    }
+}
+
+class Car extends Vehicle {
+    private String plateNumber;
+    private String driverName;
+    private String brand;
+    private String color;
+
+    Car(String plateNumber, String driverName, String brand, String color) {
+        this.plateNumber = plateNumber;
+        this.driverName = driverName;
+        this.brand = brand;
+        this.color = color;
+    }
+
+    Car(String driverName, String brand, String color) {
+        this.plateNumber = generatePlateNumber();
+        this.driverName = driverName;
+        this.brand = brand;
+        this.color = color;
+    }
+
+    protected boolean checkIfCanRun() {
+        return true;
+    }
+
+    protected void proceed() {
+        System.out.println(driverName + " by " + brand + " (" + plateNumber + ") in color " + color + " is entering at " + java.time.LocalDateTime.now());
+    }
+
+    @Override
+    public String getPlateNumber() {
+        return plateNumber;
+    }
+
+    private String generatePlateNumber() {
+        return "DBL " + (new Random().nextInt(9000) + 1000);
+    }
+}
