@@ -299,3 +299,166 @@ class Car extends Vehicle {
         return "DBL " + (new Random().nextInt(9000) + 1000);
     }
 }
+
+
+class NamedCar extends Vehicle {
+    private String plateNumber;
+    private String driverName;
+    private String brand;
+    private String color;
+
+    NamedCar(String plateNumber, String driverName, String brand, String color) {
+        this.plateNumber = plateNumber;
+        this.driverName = driverName;
+        this.brand = brand;
+        this.color = color;
+    }
+
+    NamedCar(String driverName, String brand, String color) {
+        this.plateNumber = generatePlateNumber(); 
+        this.driverName = driverName;
+        this.brand = brand;
+        this.color = color;
+    }
+
+    protected boolean checkIfCanRun() {
+        return true;
+    }
+
+    protected void proceed() {
+        System.out.println(driverName + " by " + brand + " (" + plateNumber + ") in color " + color + " is entering at " + java.time.LocalDateTime.now());
+    }
+
+    @Override
+    public String getPlateNumber() {
+        return plateNumber;
+    }
+
+    private String generatePlateNumber() {
+        return "DLE " + (new Random().nextInt(9000) + 1000);
+    }
+}
+
+
+class EmployeeCar extends Vehicle {
+    private String plateNumber;
+    private String driverName;
+    private String brand;
+    private String color;
+
+    EmployeeCar(String plateNumber, String driverName, String brand, String color) {
+        this.plateNumber = plateNumber;
+        this.driverName = driverName;
+        this.brand = brand;
+        this.color = color;
+    }
+
+    EmployeeCar(String driverName, String brand, String color) {
+        this.plateNumber = generatePlateNumber();
+        this.driverName = driverName;
+        this.brand = brand;
+        this.color = color;
+    }
+
+    protected boolean checkIfCanRun() {
+        return true;
+    }
+
+    protected void proceed() {
+        System.out.println(driverName + " by " + brand + " (" + plateNumber + ") in color " + color + " is entering at " + java.time.LocalDateTime.now());
+    }
+
+    @Override
+    public String getPlateNumber() {
+        return plateNumber;
+    }
+
+    private String generatePlateNumber() {
+        return "DWR " + (new Random().nextInt(9000) + 1000);
+    }
+}
+
+
+class Ambulance extends Vehicle {
+    private String plateNumber;
+
+    Ambulance(String plateNumber) {
+        this.plateNumber = plateNumber;
+    }
+
+    Ambulance() {
+        this.plateNumber = generatePlateNumber();
+    }
+
+    protected boolean checkIfCanRun() {
+        return true;
+    }
+
+    protected void proceed() {
+        System.out.println("Ambulance (" + plateNumber + ") is entering at " + java.time.LocalDateTime.now());
+    }
+
+    @Override
+    public String getPlateNumber() {
+        return plateNumber;
+    }
+
+    private String generatePlateNumber() {
+        return "DLW " + (new Random().nextInt(9000) + 1000);
+    }
+}
+
+
+class DeliveryTruck extends Vehicle {
+    private String plateNumber;
+    private String companyName;
+
+    DeliveryTruck(String plateNumber, String companyName) {
+        this.plateNumber = plateNumber;
+        this.companyName = companyName;
+    }
+
+    DeliveryTruck(String companyName) {
+        this.plateNumber = generatePlateNumber();
+        this.companyName = companyName;
+    }
+
+    protected boolean checkIfCanRun() {
+        return true;
+    }
+
+    protected void proceed() {
+        System.out.println(companyName + " delivery truck (" + plateNumber + ") is entering at " + java.time.LocalDateTime.now());
+    }
+
+    @Override
+    public String getPlateNumber() {
+        return plateNumber;
+    }
+
+    private String generatePlateNumber() {
+        return "DL " + (new Random().nextInt(9000) + 1000);
+    }
+}
+
+
+class Tank extends Vehicle {
+    private String plateNumber;
+
+    Tank(String plateNumber) {
+        this.plateNumber = plateNumber;
+    }
+
+    protected boolean checkIfCanRun() {
+        return false;
+    }
+
+    protected void proceed() {
+        System.out.println("tank (" + plateNumber + ") is returned at " + java.time.LocalDateTime.now());
+    }
+
+    @Override
+    public String getPlateNumber() {
+        return plateNumber;
+    }
+}
